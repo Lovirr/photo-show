@@ -61,7 +61,7 @@ export default {
     imageOnload() {
       //加载图片 根据浏览器宽度决定列数
       if (window.innerWidth <= 500) {
-        this.columns = 1;
+        this.columns = 2;
       } else if (window.innerWidth < 1000) {
         this.columns = 3;
       } else if (window.innerWidth < 1500) {

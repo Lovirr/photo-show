@@ -37,5 +37,9 @@ export default {
 </script>
 
 <style>
-
+html {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
 </style>

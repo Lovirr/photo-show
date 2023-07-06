@@ -136,6 +136,7 @@ export default {
       font-size: 35px;
       margin-bottom: 20px;
       text-align: center;
+      font-family: "PingFang SC","Microsoft YaHei",sans-serif;
     }
 /*
     .input {
@@ -222,4 +223,5 @@ export default {
       opacity: 0.9;
     }
   }*/
+  
 }</style>

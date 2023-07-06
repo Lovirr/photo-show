@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="back" @click="closeDialog()">
-      <div class="dialog" @click.stop="" v-if="$store.state.visible"> <!-- stop阻止向上冒泡，在dialog里的点击事件不会冒泡到back -->
+ <!--    <div class="back" @click="closeDialog()">
+      <div class="dialog" @click.stop="" v-if="$store.state.visible"> 
         <img src="../assets/icons/登录注册.png" alt="" class="logo">
         <div class="LoginRegist">
           <span @click="Login($event)" id="login" class="Active">登录</span>
           <span @click="Register($event)" class="NoActive">注册</span>
           <div class="underline"></div>
         </div>
-        <div v-if="isLogin" class="LoginForm"> <!--登录表单-->
+        <div v-if="isLogin" class="LoginForm"> 
           <div class="placeHolderDiv">
             <input type="text" required="required">
             <span>用户名</span>
@@ -20,10 +20,9 @@
           <button type="submit">登录</button>
         </div>
 
-        <div v-else class="RegistForm"> <!--注册表单-->
+        <div v-else class="RegistForm"> 
           <div class="placeHolderDiv">
-            <input type="text" placeholder="例@xxx.com" required="required"><!--@focus="focusInput($event)"-->
-            <span>电子邮件</span>
+            <input type="text" placeholder="例@xxx.com" required="required">
           </div>
           <div class="placeHolderDiv">
             <input type="text" placeholder="仅限字母、数字和下划线" required="required">
@@ -37,9 +36,8 @@
         </div>
 
         <div class="footer">注册登录即代表同意《用户协议》《隐私政策》</div>
-      </div> <!-- dialog end-->
-    </div> <!-- back end-->
-    <!-- 回到顶部 图标按钮-->
+      </div> 
+    </div>  -->
     <a href="#" id="gotoTop"><img src="../assets/icons/热门.png" alt=""></a>
   </div>
 </template>
@@ -69,7 +67,7 @@ function enableWindowScroll() {
   winY = null;
 }
 
-export default {
+/* export default {
   name: "Dialog",
   data() {
     return {
@@ -122,7 +120,7 @@ export default {
   mounted() {
     this.DialogVisibility(this.$store.state.visible)  //页面加载完 先控制弹窗的显示
   }
-};
+}; */
 </script>
 <style lang="less" scoped>
 * {
@@ -141,182 +139,182 @@ export default {
   height: 100%;
   background-color: rgba(0, 0, 0, .5);
 
-  @keyframes dialog {
-    0% {
-      width: 0;
-      height: 0;
-      position: fixed;
-      top: 0%;
-      right: 0%;
-    }
+  // @keyframes dialog {
+  //   0% {
+  //     width: 0;
+  //     height: 0;
+  //     position: fixed;
+  //     top: 0%;
+  //     right: 0%;
+  //   }
 
-    100% {
-      position: fixed; //固定定位，弹窗永远弹出在可视窗口的中间
-      top: 50%;
-      right: 50%;
-      transform: translate(50%, -50%);
-    }
-  }
+  //   100% {
+  //     position: fixed; //固定定位，弹窗永远弹出在可视窗口的中间
+  //     top: 50%;
+  //     right: 50%;
+  //     transform: translate(50%, -50%);
+  //   }
+  // }
 
-  .dialog {
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(255, 255, 255);
-    width: 420px;
-    height: 470px;
-    border-radius: 20px;
-    animation: dialog .2s ease-in-out forwards; // 动画名 持续时间 运动曲线 播放完状态停留在动画的100%样式
+  // .dialog {
+  //   z-index: 3;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   background-color: rgb(255, 255, 255);
+  //   width: 420px;
+  //   height: 470px;
+  //   border-radius: 20px;
+  //   animation: dialog .2s ease-in-out forwards; // 动画名 持续时间 运动曲线 播放完状态停留在动画的100%样式
 
-    .logo {
-      width: 40%;
-      margin: 30px auto;
-    }
+  //   .logo {
+  //     width: 40%;
+  //     margin: 30px auto;
+  //   }
 
-    .LoginRegist {
-      //登录注册tab
-      flex: 1;
+  //   .LoginRegist {
+  //     //登录注册tab
+  //     flex: 1;
 
-      .Active {
-        //选中
-        margin: 30px 30px;
-        font-size: 28px;
-        font-weight: bold;
-        color: black;
-        // border-bottom: 5px solid black;
-      }
+  //     .Active {
+  //       //选中
+  //       margin: 30px 30px;
+  //       font-size: 28px;
+  //       font-weight: bold;
+  //       color: black;
+  //       // border-bottom: 5px solid black;
+  //     }
 
-      .NoActive {
-        //未选中
-        margin: 30px 30px;
-        font-size: 28px;
-        font-weight: bold;
-        color: gray;
-        // border-bottom: 0 solid black;
-      }
+  //     .NoActive {
+  //       //未选中
+  //       margin: 30px 30px;
+  //       font-size: 28px;
+  //       font-weight: bold;
+  //       color: gray;
+  //       // border-bottom: 0 solid black;
+  //     }
 
-      .underline {
-        margin-left: 26px; //默认在登录键下面
-        width: 60px;
-        height: 5px;
-        background-color: rgb(0, 0, 0);
-        border-radius: 3px;
-        transition: .5s; //在改变位置时有过渡效果
-      }
+  //     .underline {
+  //       margin-left: 26px; //默认在登录键下面
+  //       width: 60px;
+  //       height: 5px;
+  //       background-color: rgb(0, 0, 0);
+  //       border-radius: 3px;
+  //       transition: .5s; //在改变位置时有过渡效果
+  //     }
 
-      span:hover {
-        cursor: pointer;
-      }
-    }
+  //     span:hover {
+  //       cursor: pointer;
+  //     }
+  //   }
 
-    .LoginForm {
-      //登录表单
-      flex: 7;
-      width: 70%;
-      text-align: center;
-      margin: 30px auto 10px;
-    }
+  //   .LoginForm {
+  //     //登录表单
+  //     flex: 7;
+  //     width: 70%;
+  //     text-align: center;
+  //     margin: 30px auto 10px;
+  //   }
 
-    .RegistForm {
-      //注册表单
-      flex: 7;
-      text-align: center;
-      width: 70%;
-      margin: 30px auto 10px;
-    }
+  //   .RegistForm {
+  //     //注册表单
+  //     flex: 7;
+  //     text-align: center;
+  //     width: 70%;
+  //     margin: 30px auto 10px;
+  //   }
 
-    .placeHolderDiv {
-      //包围输入框的父级div
-      position: relative; //父相
+  //   .placeHolderDiv {
+  //     //包围输入框的父级div
+  //     position: relative; //父相
 
-      input {
-        width: 85%;
-        height: 36px;
-        // line-height: 18px;
-        padding: 10px;
-        border: 1px solid gray;
-        margin: 12px;
-        border-radius: 18px;
-        /*清除input点击之后的黑色边框*/
-        outline: none;
-        transition: .5s;
-      }
+  //     input {
+  //       width: 85%;
+  //       height: 36px;
+  //       // line-height: 18px;
+  //       padding: 10px;
+  //       border: 1px solid gray;
+  //       margin: 12px;
+  //       border-radius: 18px;
+  //       /*清除input点击之后的黑色边框*/
+  //       outline: none;
+  //       transition: .5s;
+  //     }
 
-      input:focus::placeholder {
-        //输入框聚焦时 显示出placeholder文字
-        opacity: 1;
-        transition: 1s; //1秒内逐渐显示提示的文字
-      }
+  //     input:focus::placeholder {
+  //       //输入框聚焦时 显示出placeholder文字
+  //       opacity: 1;
+  //       transition: 1s; //1秒内逐渐显示提示的文字
+  //     }
 
-      input::placeholder {
-        //输入框没有聚焦时 隐藏placeholder文字
-        opacity: 0;
-      }
+  //     input::placeholder {
+  //       //输入框没有聚焦时 隐藏placeholder文字
+  //       opacity: 0;
+  //     }
 
-      span {
-        //提示字
-        display: block;
-        position: absolute; //子绝
-        top: 29px;
-        left: 30px;
-        padding: 0 4px;
-        pointer-events: none;
-        font-size: 13px;
-        color: gray;
-        line-height: 2px;
-        transition: all .2s ease-in-out;
-        z-index: 1;
-      }
-    }
+  //     span {
+  //       //提示字
+  //       display: block;
+  //       position: absolute; //子绝
+  //       top: 29px;
+  //       left: 30px;
+  //       padding: 0 4px;
+  //       pointer-events: none;
+  //       font-size: 13px;
+  //       color: gray;
+  //       line-height: 2px;
+  //       transition: all .2s ease-in-out;
+  //       z-index: 1;
+  //     }
+  //   }
 
-    .placeHolderDiv input:valid,
-    //当输入合法时
-    .placeHolderDiv input:focus {
-      //当输入框聚焦时
-      height: 36px;
-      line-height: 18px;
-      border: 1px solid #fc9345;
-      border-radius: 18px;
-      position: relative;
-      transition: .5s;
-    }
+  //   .placeHolderDiv input:valid,
+  //   //当输入合法时
+  //   .placeHolderDiv input:focus {
+  //     //当输入框聚焦时
+  //     height: 36px;
+  //     line-height: 18px;
+  //     border: 1px solid #fc9345;
+  //     border-radius: 18px;
+  //     position: relative;
+  //     transition: .5s;
+  //   }
 
-    .placeHolderDiv input:valid~span,
-    .placeHolderDiv input:focus~span {
-      // ~ 是指与input同级的所有span ，而不是input下面的子span
-      color: #fc9345;
-      transform: translateY(-19px) scale(0.9);
-      font-size: 12px;
-      padding: 4px;
-      background-color: #fff;
-    }
+  //   .placeHolderDiv input:valid~span,
+  //   .placeHolderDiv input:focus~span {
+  //     // ~ 是指与input同级的所有span ，而不是input下面的子span
+  //     color: #fc9345;
+  //     transform: translateY(-19px) scale(0.9);
+  //     font-size: 12px;
+  //     padding: 4px;
+  //     background-color: #fff;
+  //   }
 
-    button {
-      width: 85%;
-      height: 37px;
-      font-size: medium;
-      font-weight: bold;
-      background-color: #fc9345;
-      border-radius: 17px;
-      border: 0px solid;
-      color: #fff;
-      margin: 10px auto 0;
-    }
+  //   button {
+  //     width: 85%;
+  //     height: 37px;
+  //     font-size: medium;
+  //     font-weight: bold;
+  //     background-color: #fc9345;
+  //     border-radius: 17px;
+  //     border: 0px solid;
+  //     color: #fff;
+  //     margin: 10px auto 0;
+  //   }
 
-    button:hover {
-      cursor: pointer;
-      opacity: 0.9;
-    }
+  //   button:hover {
+  //     cursor: pointer;
+  //     opacity: 0.9;
+  //   }
 
-    .footer {
-      font-size: x-small;
-      font-weight: bold;
-      color: gray;
-      margin-bottom: 30px;
-    }
-  }
+  //   .footer {
+  //     font-size: x-small;
+  //     font-weight: bold;
+  //     color: gray;
+  //     margin-bottom: 30px;
+  //   }
+  // }
 
 
 }
