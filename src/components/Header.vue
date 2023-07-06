@@ -1,27 +1,31 @@
 <template>
-  <div class="header">
-    <video class="homevideo" src="../assets/headerVideo.mp4" muted autoplay loop></video>
+  <!-- 顶部导航栏 -->
 
+
+
+  <div class="header">
+    <img class="homevideo" src="https://cdn.jsdelivr.net/gh/Lovirr/cdn/IMAGE/a320.webp" >
+<!-- 
     <div class="topleft">
       <a href="">
         <img class="logo" src="../assets/icons/商标.png" alt="">
       </a>
       <img class="title" src="../assets/icons/自由的碎片.png" alt="">
-    </div>
+    </div> -->
 
     <div class="topmiddle">
-      <h1 ref="h1">来自全球才华横溢的创作者，随时随地分享图片和视频。</h1>
-      <div class="input">
+      <h1 ref="h1">欢迎来到 <br />小骆同学的摄影展</h1>
+      <!-- <div class="input">
         <img src="../assets/icons/搜索.png" alt="">
         <input type="text" placeholder="搜索高分辨率图片">
-      </div>
+      </div> -->
     </div>
 
-    <div class="topright">
+    <!-- <div class="topright">
       <a class="text" href="javascript:;" @click="loginRegist()">探索</a>
       <a class="text" href="javascript:;" @click="loginRegist()">上传</a>
       <button @click="loginRegist()" class="loginRegist" type="primary" round>登陆/注册</button>
-    </div>
+    </div> -->
 
   </div>
 </template>
@@ -35,7 +39,7 @@ export default {
 
     }
   },
-  methods: {
+/*   methods: {
     loginRegist() {
       this.$store.commit('turnVisible')
     },
@@ -47,13 +51,14 @@ export default {
         text[0].style.visibility = text[1].style.visibility = title[0].style.visibility = 'visible'
       window.innerWidth < 950 ? this.$refs.h1.style.fontSize = '25px' : this.$refs.h1.style.fontSize = '35px'
     }
-  },
+  }, 
   created() {
   },
   mounted() {
     this.changeWidth()  //检查是否需要隐藏左右上角文字
     window.addEventListener('resize', this.changeWidth);
   }
+  */
 }
 </script>
   
@@ -63,18 +68,27 @@ export default {
   padding: 0;
 }
 
+
+
 .header {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 540px;
+  height: 450px;
   overflow: hidden;
   text-align: center;
-  background-color: #e7e7e7;
+  background-color: #141414;
+  @media (max-width: 900px) {
+  .header {
+    height: 240px;
+  }
+}
 
-  .topleft {
+
+
+/*  .topleft {
     z-index: 1;
     position: absolute;
     top: 2%;
@@ -97,15 +111,16 @@ export default {
       width: 125px;
     }
   }
-
+*/
 
   .homevideo {
     display: block;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -70%);
-    min-width: 100%; //拉伸收缩页面 改变分辨率，视频都铺满父级div
+    // left: 0%;
+    // top: 50%;
+    // transform: translate(-50%, -70%);
+    // min-width: 100%; //拉伸收缩页面 改变分辨率，视频都铺满父级div
+    max-width: 100%;
   }
 
   .topmiddle {
@@ -122,7 +137,7 @@ export default {
       margin-bottom: 20px;
       text-align: center;
     }
-
+/*
     .input {
       display: flex;
       justify-content: center;
@@ -155,11 +170,11 @@ export default {
         width: 100%;
         height: 100%;
         border: none;
-        /*清除边框*/
+        // 清除边框
         background: none;
-        /*清除背景*/
+        // 清除背景
         outline: none;
-        /*清除input点击之后的黑色边框*/
+        // 清除input点击之后的黑色边框
         font-size: medium;
       }
 
@@ -168,8 +183,9 @@ export default {
         opacity: 0;
       }
     }
+*/
   }
-
+/*
   .topright {
     position: absolute;
     top: 3%;
@@ -205,5 +221,5 @@ export default {
       cursor: pointer;
       opacity: 0.9;
     }
-  }
+  }*/
 }</style>

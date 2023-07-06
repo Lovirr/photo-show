@@ -16,8 +16,8 @@ const mutations={
 //用于存储数据
 const state={
     visible:false,   //dialog可视化
-    tabList:['推荐','人文艺术','视频','游戏','宠物','工业设计','汽车/摩托'],
-    
+    // tabList:['推荐','人文艺术','视频','游戏','宠物','工业设计'],
+    tabList:['2023','2022'],
     choose: 0,  //选中的tabList的下标 默认选第一个
 }
 // 创建store

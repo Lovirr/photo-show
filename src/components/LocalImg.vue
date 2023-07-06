@@ -3,40 +3,18 @@
     <!-- 如果不用wf-content？ -->
     <!-- 遍历图片数组获取图片 -->
     <div class="wf-item mask" v-for="(item, index) in imgList" :key="index">
-      <video
-        id="videoList"
-        v-if="$store.state.choose === 2"
-        :src="item"
-        onmouseover="this.play()"
-        onmouseout="this.pause()"
-        @loadeddata="imageOnload()"
-      >
+      <video id="videoList" v-if="$store.state.choose === 2" :src="item" onmouseover="this.play()"
+        onmouseout="this.pause()" @loadeddata="imageOnload()">
         <!--  @loadeddata 视频加载时调用-->
       </video>
-      <img
-        v-if="$store.state.choose !== 2"
-        v-lazy="item"
-        alt="xxx"
-        ref="image"
-        @load="imageOnload()"
-      />
-      <span  class="source">来自：<a href="https://www.pexels.com/zh-cn/">pexels</a></span>
-      <a class="collect icons" @click="loginRegist()"
-        ><img title="收藏" src="../assets/icons/收藏.png" alt=""
-      /></a>
-      <a class="like icons" @click="loginRegist()"
-        ><img title="点赞" src="../assets/icons/赞.png" alt=""
-      /></a>
-      <a class="download icons" @click="loginRegist()"
-        ><img title="下载" src="../assets/icons/下载.png" alt=""
-      /></a>
+      <img v-if="$store.state.choose !== 2" v-lazy="item" alt="xxx" ref="image" @load="imageOnload()" />
+      <!-- <span class="source">来自：<a href="https://www.pexels.com/zh-cn/">pexels</a></span> -->
+      <!-- <a class="collect icons" @click="loginRegist()"><img title="收藏" src="../assets/icons/收藏.png" alt="" /></a>
+      <a class="like icons" @click="loginRegist()"><img title="点赞" src="../assets/icons/赞.png" alt="" /></a>
+      <a class="download icons" @click="loginRegist()"><img title="下载" src="../assets/icons/下载.png" alt="" /></a>
       <a class="pexels icons" @click="gotoPexels()">
-        <img
-          title="点击跳转到pexels官网"
-          src="../assets/icons/pexels.png"
-          alt=""
-        />
-      </a>
+        <img title="点击跳转到pexels官网" src="../assets/icons/pexels.png" alt="" />
+      </a> -->
     </div>
   </div>
 </template>
@@ -85,11 +63,11 @@ export default {
       if (window.innerWidth <= 500) {
         this.columns = 1;
       } else if (window.innerWidth < 1000) {
-        this.columns = 2;
+        this.columns = 3;
       } else if (window.innerWidth < 1500) {
         this.columns = 3;
       } else if (window.innerWidth < 2000) {
-        this.columns = 4;
+        this.columns = 5;
       }
       new WaterFall({
         //执行waterfall.js文件中的构造函数
@@ -107,27 +85,64 @@ export default {
       switch (choose) {
         case 0:
           this.imgList = null;
-          this.imgList = importAll(
-            require.context(
-              "@/assets/imgs/recommend",
-              false,
-              /\.(png|jpe?g|svg)$/
-            )
-          );
+
+          // 本地图片
+          // this.imgList = importAll(
+          //   require.context(
+          //     "@/assets/imgs/recommend",
+          //     false,
+          //     /\.(png|jpe?g|svg)$/
+          //   )
+          // );
+
+          // 网络图片 (直接调用网络图片的URL,但是很代码会很长，不建议)
+          //           this.imgList = [
+          //   "https://cdn.jsdelivr.net/gh/Lovirr/cdn/IMAGE/202307061025451.webp",
+          //   "https://cdn.jsdelivr.net/gh/Lovirr/cdn/IMAGE/202307061021397.png",
+          //   "https://cdn.jsdelivr.net/gh/Lovirr/cdn/IMAGE/202307051240713.webp",
+          //   "https://cdn.jsdelivr.net/gh/Lovirr/cdn/IMAGE/202307051240716.webp"
+          //   // 添加更多网络图片的URL
+          // ];
+
+          // 网络图片(调用json文件)
+          fetch('/2023.json')
+            .then(response => response.json())
+            .then(data => {
+              // 将解析得到的链接列表赋值给 imgList 变量
+              this.imgList = data;
+            })
+            .catch(error => {
+              console.error('加载 图片json 文件时出错:', error);
+            });
           break;
+
         case 1:
           this.imgList = null;
-          this.imgList = importAll(
+ /*          this.imgList = importAll(
             require.context("@/assets/imgs/art", false, /\.(png|jpe?g|svg)$/)
-          );
+          ); */
+
+          // 网络图片(调用json文件)
+          fetch('/2022.json')
+            .then(response => response.json())
+            .then(data => {
+              // 将解析得到的链接列表赋值给 imgList 变量
+              this.imgList = data;
+            })
+            .catch(error => {
+              console.error('加载 图片json 文件时出错:', error);
+            });
+
+
+
           break;
-        case 2:
+/*         case 2:
           this.imgList = null;
           this.imgList = importAll(
             require.context("@/assets/video", false, /\.(mp4)$/)
           );
-          break;
-        case 3:
+          break; */
+/*         case 3:
           this.imgList = null;
           this.imgList = importAll(
             require.context("@/assets/imgs/game", false, /\.(png|jpe?g|svg)$/)
@@ -138,8 +153,8 @@ export default {
           this.imgList = importAll(
             require.context("@/assets/imgs/pet", false, /\.(png|jpe?g|svg)$/)
           );
-          break;
-        case 5:
+          break; */
+/*         case 5:
           this.imgList = null;
           this.imgList = importAll(
             require.context(
@@ -148,18 +163,18 @@ export default {
               /\.(png|jpe?g|svg)$/
             )
           );
-          break;
-        case 6:
+          break; */
+/*         case 6:
           this.imgList = null;
           this.imgList = importAll(
             require.context("@/assets/imgs/car", false, /\.(png|jpe?g|svg)$/)
-          );
+          ); */
         default:
           break;
       }
     },
-    gotoPexels(){
-        location.assign('https://www.pexels.com/zh-cn/')
+    gotoPexels() {
+      location.assign('https://www.pexels.com/zh-cn/')
     }
   },
   watch: {
@@ -169,6 +184,8 @@ export default {
     },
   },
 };
+
+
 </script>
 
 <style lang="less">
@@ -179,13 +196,13 @@ export default {
 
 .Waterfall {
   position: relative;
-  margin: 30px auto 0px;
+  margin: 0px auto 0px;
   width: 85%;
 
   .wf-item {
     position: absolute;
 
-    .icons {
+/*     .icons {
       display: none;
       position: absolute;
       width: 30px;
@@ -209,12 +226,14 @@ export default {
       bottom: 15px;
       right: 10px;
     }
+
     .pexels {
       width: 35px;
       height: 35px;
       bottom: 15px;
       left: 10px;
     }
+
     .source {
       display: none;
       position: absolute;
@@ -222,18 +241,20 @@ export default {
       left: 50px;
       float: left;
       color: #fff;
-      a{
+
+      a {
         text-decoration: none;
-        color:white;
+        color: white;
       }
     }
+
     .icons:hover {
       transform: scale(1.1);
-    }
+    } */
 
     img {
       width: 100%;
-      // border-radius: 10px;
+      border-radius: 10px;
       vertical-align: bottom;
       /*去除图片下方的空隙*/
     }
@@ -244,29 +265,46 @@ export default {
     }
   }
 
+
+  .wf-item{
+    transition: all 0.45s ease-in-out;
+  }
   .wf-item:hover {
-    transform: scale(1.015);
+    transform: scale(0.95) rotate(2deg);
+
     cursor: pointer;
   }
 
-  .wf-item:hover .icons {   //鼠标悬停图片时 显示小图标
-    display: block;
-  }
-  .wf-item:hover .source {//鼠标悬停图片时 显示小文字
-    display: block;
-  }
+  // .wf-item:hover .icons {
+  //   //鼠标悬停图片时 显示小图标
+  //   display: block;
+  // }
+
+  // .wf-item:hover .source {
+  //   //鼠标悬停图片时 显示小文字
+  //   display: block;
+  // }
 
   //鼠标悬停时显示上下内阴影  用before伪元素选择器
-  .wf-item:hover::before {
-    content: "";
-    position: absolute;
-    // border-radius: 10px;
-    width: 100%;
-    height: 100%;
-    //用逗号间隔，可以设置多个边的内部阴影
-    box-shadow: 0px 90px 60px -50px rgba(0, 0, 0, 0.3) inset,
-      //上内阴影
-      0px -90px 60px -50px rgba(0, 0, 0, 0.3) inset; //下内阴影
-  }
+//   .wf-item::before {
+//   content: "";
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   box-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0);
+//   transition: box-shadow 0.5s ease-in-out;
+// }
+
+//   .wf-item:hover::before {
+//     content: "";
+//     position: absolute;
+//     // border-radius: 10px;
+//     width: 100%;
+//     height: 100%;
+//     //用逗号间隔，可以设置多个边的内部阴影
+//     box-shadow: 0px 90px 60px -50px rgba(0, 0, 0, 0.3) inset,
+//       //上内阴影
+//       0px -90px 60px -50px rgba(0, 0, 0, 0.3) inset; //下内阴影
+//   }
 }
 </style>

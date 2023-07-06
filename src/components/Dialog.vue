@@ -325,8 +325,8 @@ export default {
   visibility: hidden;
   z-index: 1;
   position: fixed;
-  bottom: 50px;
-  right: 50px;
+  bottom: 30px;
+  right: 20px;
   width: 40px;
   height: 40px;
   display: flex;
