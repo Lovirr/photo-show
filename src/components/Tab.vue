@@ -27,9 +27,9 @@ export default {
     changeLiSize() {
       var tabDom = document.getElementsByClassName('li')
       for (let i = 0; i < tabDom.length; i++) {
-        window.innerWidth < 650 ?   //屏幕宽度小于650px 时 切换小字体 否则放大
-            tabDom[i].style.fontSize = '10px' :
-            tabDom[i].style.fontSize = '20px'
+        // window.innerWidth < 650 ?   //屏幕宽度小于650px 时 切换小字体 否则放大
+        //     tabDom[i].style.fontSize = '10px' :
+        //     tabDom[i].style.fontSize = '20px'
       }
     }
   },

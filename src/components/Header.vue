@@ -15,16 +15,7 @@
 </template>
 
 <script>
-export default {
-  name: 'Header',
-  data() {
-    return {
-      topInput: '',
 
-    }
-  },
-
-}
 </script>
   
 <style lang="less">
@@ -67,8 +58,8 @@ export default {
       pointer-events: none;
       color: white;
       font-weight: bold;
-      font-size: 5vw;
-      margin-bottom: 20px;
+      font-size: 7vw;
+      // margin-bottom: 20px;
       text-align: center;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
       animation: fade-in-up 1s ease-out both;
