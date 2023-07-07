@@ -42,4 +42,47 @@ html {
     display: none;
   }
 }
+.waterfall-item {
+    opacity: 0;
+    transform: translateY(200px);
+    animation: fade-in-up 3s ease-out both;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(200px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .waterfall-item:nth-child(1) {
+  animation-duration: 2s;
+}
+
+.waterfall-item:nth-child(2) {
+  animation-duration: 2.5s;
+}
+
+.waterfall-item:nth-child(3) {
+  animation-duration: 3s;
+}
+
+.waterfall-item:nth-child(4) {
+  animation-duration: 3.5s;
+}
+
+.waterfall-item:nth-child(5) {
+  animation-duration: 4s;
+}
+
+.waterfall-item.loading {
+  animation: loading-animation 1s infinite linear;
+}
+
+
+
 </style>

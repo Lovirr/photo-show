@@ -1,35 +1,5 @@
 <template>
-  <div class="">
-    <el-container>
-      <el-header>
-        <div class="banner">
-          <div class="topleft">首页 | 发现 | 其他</div>
-          <div class="topmeddle">
-            <el-input v-model="topInput" prefix-icon="el-icon-search" clearable placeholder="搜索"
-              class="topinput"></el-input>
-          </div>
-          <div class="topright"> <el-button class="topbutton" type="primary" round>登陆/注册</el-button></div>
-        </div>
-      </el-header>
-
-      <el-main>
-        <div class="content">
-
-          <div v-for="(item, index) in imgArr" :key="index">
-            <img class="randomImg" :src="item" alt="图片api可能过期了" />
-            <!-- <img src="../assets/logo.png" alt=""> -->
-          </div>
-          <!--懒加载图片 -->
-          <!-- <div v-for="(number, index) in imgNum" :key="index">
-            <img :src="number" alt="图片api可能过期了">
-          </div>  -->
-
-        </div>
-      </el-main>
-
-      <!-- <el-footer>Footer</el-footer> -->
-    </el-container>
-  </div>
+  
 </template>
 
 <script>

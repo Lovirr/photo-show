@@ -27,7 +27,17 @@ export class WaterFall{ //类
                 value.style.left = (this.itemWidth + this.gap)*this.minIndex +"px"  //第二排往后的 左边距为左边多少张图片就加多少张图片的宽度和间隔
                 this.heightArr[this.minIndex] += value.offsetHeight +this.gap  //更新一下高度数组，最小高度的那一项就加上了图片的高度
             }
+             // 为每个图片元素添加 CSS 类
+            value.classList.add("waterfall-item");
+            
+        // 监听图片加载事件
+        const image = value.querySelector("img");
+        image.addEventListener("load", () => {
+            value.classList.remove("loading");
+        });
+            
         })
+        
     }
 
     __getMiniIndex(){//获取高度数组中最小高度的下标
