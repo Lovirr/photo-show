@@ -9,6 +9,7 @@
 
   </div>
 </template>
+<!-- 统计脚本 -->
 
 <script>
 import Header from "./components/Header.vue";
@@ -78,11 +79,5 @@ html {
 .waterfall-item:nth-child(5) {
   animation-duration: 4s;
 }
-
-.waterfall-item.loading {
-  animation: loading-animation 1s infinite linear;
-}
-
-
 
 </style>

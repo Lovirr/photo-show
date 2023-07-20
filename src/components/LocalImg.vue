@@ -100,7 +100,66 @@ export default {
             .catch(error => {
               console.error('加载 图片json 文件时出错:', error);
             });
-          break;
+ 
+          case 2:
+          this.imgList = null;
+          fetch('/2022.json')
+            .then(response => response.json())
+            .then(data => {
+              // 将解析得到的链接列表赋值给 imgList 变量
+              this.imgList = data;
+            })
+            .catch(error => {
+              console.error('加载 图片json 文件时出错:', error);
+            });
+
+            case 3:
+          this.imgList = null;
+          fetch('/2022.json')
+            .then(response => response.json())
+            .then(data => {
+              // 将解析得到的链接列表赋值给 imgList 变量
+              this.imgList = data;
+            })
+            .catch(error => {
+              console.error('加载 图片json 文件时出错:', error);
+            });
+
+            case 4:
+          this.imgList = null;
+          fetch('/2022.json')
+            .then(response => response.json())
+            .then(data => {
+              // 将解析得到的链接列表赋值给 imgList 变量
+              this.imgList = data;
+            })
+            .catch(error => {
+              console.error('加载 图片json 文件时出错:', error);
+            });
+
+            case 5:
+          this.imgList = null;
+          fetch('/2022.json')
+            .then(response => response.json())
+            .then(data => {
+              // 将解析得到的链接列表赋值给 imgList 变量
+              this.imgList = data;
+            })
+            .catch(error => {
+              console.error('加载 图片json 文件时出错:', error);
+            });
+
+            case 6:
+          this.imgList = null;
+          fetch('/2022.json')
+            .then(response => response.json())
+            .then(data => {
+              // 将解析得到的链接列表赋值给 imgList 变量
+              this.imgList = data;
+            })
+            .catch(error => {
+              console.error('加载 图片json 文件时出错:', error);
+            });
 
         default:
           break;

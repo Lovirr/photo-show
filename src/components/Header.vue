@@ -1,29 +1,20 @@
 <template>
   <!-- 顶部导航栏 -->
-
   <div class="header">
     <img class="homevideo" src="https://cdn.jsdelivr.net/gh/Lovirr/cdn/IMAGE/a320.webp">
-
-
     <div class="topmiddle">
       <h1 ref="h1">欢迎来到 <br />小骆同学的摄影展</h1>
-
     </div>
-
-
   </div>
 </template>
 
-<script>
-
-</script>
+<script></script>
   
 <style lang="less">
 * {
   margin: 0;
   padding: 0;
 }
-
 
 .header {
   position: relative;
@@ -35,8 +26,6 @@
   overflow: hidden;
   text-align: center;
   background-color: #141414;
-
-
 
   .homevideo {
     display: block;
@@ -64,7 +53,6 @@
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
       animation: fade-in-up 1s ease-out both;
     }
-
 
   }
 
